@@ -287,23 +287,23 @@ class users implements iUsers
 	
 	final public function updateAccount()
 	{
-		global $template, $_CONFIG, $core;
+		global $template, $_CONFIG, $core, $engine;
 		
 		if(isset($_POST['account']))
 		{
 		
 			if(isset($_POST['acc_motto']) && $_POST['acc_motto'] != $this->getInfo($_SESSION['user_id'], 'motto'))
 			{
-				$this->updateUser($_SESSION['user_id'], 'motto', filter($_POST['acc_motto']));
+				$this->updateUser($_SESSION['user_id'], 'motto', $engine->secure($_POST['acc_motto']));
 				header('Location: '.$_CONFIG['hotel']['url'].'/me');
 				exit;
 			}
 			
-			if(isset($_POST['acc_email']) && $_POST['acc_email'] != $this->getInfo($_SESSION['user_id'], 'mail'))
+			if(isset($_POST['acc_email']) && $_POST['acc_email'] != $this->getInfo($_SESSION['user_id'], 'email'))
 			{
 				if($this->validEmail($_POST['acc_email']))
 				{
-					$this->updateUser($_SESSION['user_id'], 'mail', filter($_POST['acc_email']));
+					$this->updateUser($_SESSION['user_id'], 'email', $engine->secure($_POST['acc_email']));
 					header('Location: '.$_CONFIG['hotel']['url'].'/me');
 					exit;
 				}
@@ -427,18 +427,6 @@ class users implements iUsers
 	} 
 	
 	/*-------------------------------Handling user information-------------------------------------*/ 	 
-	
-/*	final public function cacheUser($k)
-	{
-		global $engine; 		 	
-		$userInfo = $engine->fetch_array("SELECT * FROM users WHERE id = '" . $k . "' LIMIT 1");
-		
-		foreach($userInfo as $key => $value)
-		{
-			$this->setInfo($key, $value);
-		}
-	
-	}	*/
 	
 	final public function setInfo($key, $value)
 	{
