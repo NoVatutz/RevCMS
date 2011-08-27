@@ -1,0 +1,531 @@
+body
+{
+	margin: 0px;
+	padding: 0px;
+	
+	background-color: #BCE0EE;
+	
+	font-family: Verdana, Arial, Helvetica, Sans-serif;
+	text-align: center
+}
+
+#message{padding:5px;color:#bc532a;height:17px;background:#fffde5;border:#f2e2c2 1px solid;margin-bottom:5px;}
+
+input, .input
+{
+	border: 1px solid #000000;
+	
+	background-color: #FFFFFF;
+	
+	width: 165px;
+	height: 17px;
+	line-height: 17px;
+	
+	margin-top: 3px;
+}
+
+.clear
+{
+	clear: both;
+}
+
+.round
+{
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.page
+{
+	text-align: left;
+	font-weight: bold;
+}
+
+#community .page
+{
+	background-color: #AFAFAF !important;
+}
+
+.green
+{
+	background-color: #5FAD57 !important;
+}
+.orange
+{
+	background-color: #f2803C !important;
+}
+.red
+{
+	background-color: #CC0000 !important;
+}
+	
+.message
+{
+	padding: 5px;
+	margin-bottom: 10px;
+	font-size: 11px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+.message p
+{
+	font-weight: normal;
+	margin-left: 5px !important;
+}
+
+.content
+{
+	position: relative;
+		
+	margin-top: 7px !important;
+	padding: 15px;
+		
+	width: 348px;
+	height: auto;
+		
+	text-align: left !important;
+		
+	border: 1px solid #96B3BE;
+	border-bottom: 2px solid #96B3BE;
+
+	background-color: #FFFFFF;
+}
+	
+.head
+{
+	margin-bottom: 18px;
+}
+	
+.head .online
+{
+	position: absolute;
+	top: 25px;
+	right: 15px;
+		
+	color: #FF6000;
+	font-size: 11px;
+}
+
+.head .online b
+{
+	color: #000000;
+}
+
+.content .left, .content .right
+{
+	float: left;
+		
+	background-color: #999999;
+		
+	padding: 10px;
+	margin-bottom: 5px;
+		
+	width: 95%;
+		
+	color: #FFFFFF;
+	font-size: 12px;
+}
+
+.page .left, .message p, h3
+{
+	padding: 0px;
+	margin: 0px;
+}
+
+.content .right
+{
+	margin-left: 10px;
+}
+
+.page p
+{
+	padding: 5px;
+	margin: 2px;
+			
+	margin-left: 0px !important;
+	padding-left: 0px !important;
+}
+
+#community .page p
+{
+	font-weight: normal;
+}
+
+.center
+{
+	text-align: center;
+	margin: auto;
+}
+
+.bottom
+{
+	margin-top: 12px;
+	width: 100%;
+	vertical-align: bottom;
+}
+	
+.copyright
+{
+	margin-top: 3px;
+		
+	font-size: 10px;
+	color: #494949;
+	text-align: center;
+}
+
+.button
+{
+	background: url('../images/button.png') 0px 0px repeat-x;
+	
+	border: 2px solid black;
+	
+	height: 25px;
+	line-height: 21px;
+	width: auto;
+	
+	padding-left: 19px;
+	padding-right: 19px;
+	
+	text-align: center;
+	color: black;
+	font-weight: bold;
+	font-size: 11px;
+}
+
+.button:hover
+{
+	background: url('../images/button.png') 0px -21px repeat-x;
+
+	cursor: pointer;
+}
+
+.pos-right
+{
+	float: right;
+}
+
+.cancel
+{
+	float: left;
+		
+	color: #FF6000;
+	font-size: 11px;
+}
+
+.cancel span
+{
+	line-height: 45px;
+}
+
+.content .login, .content .register
+{
+	font-weight: bold;
+}
+
+.login p input
+{
+	width: 145px;
+}
+
+.content .register
+{		
+	text-align: center;
+}
+
+.content .small
+{
+	width: 149px;
+}
+
+.content .register .small
+{
+	width: 139px;
+}
+
+.content .login .title
+{
+	margin-top: 0px; 
+	padding-top: 0px;
+	 
+	font-size: 12px;
+}
+
+.content .register p, .content .login p
+{
+	padding: 5px;
+	margin: 2px;
+}
+
+.content .login p
+{
+	margin-left: 0px !important;
+	padding-left: 0px !important;
+	
+	font-size: 11px;
+}
+
+.content .register a
+{
+	color: #FFFFFF;
+	font-size: 12px;
+}
+
+.maintenance
+{
+	padding: 15px;
+	padding-top: 25px;
+}
+
+.maintenance p
+{
+	font-weight: normal;
+	width: 70%;
+	float: left;
+}
+
+.menu
+{
+	height: 24px;
+	width: 100%;
+	
+	margin-bottom: 15px;
+	
+	border: 1px solid #96B3BE;
+	border-bottom: 2px solid #96B3BE;
+	
+	background-color: #C5DBE2;
+}
+
+.menu ul
+{		
+	width: 100%;
+	line-height: 20px;
+		
+	padding: 0px;
+	margin: 0px;
+	margin-left: 12px;
+}
+
+.menu li
+{
+	float: left;
+			
+	list-style: none;
+			
+	padding-right: 10px;
+}
+
+.menu li a
+{
+	font-size: 11px;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.menu li a:hover
+{
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.menu .signout
+{
+	float: right;
+	padding-right: 22px;
+}
+
+.user_info
+{
+	position: relative;
+	
+	background: url('../images/htlview_us.png') top center no-repeat;
+	background-color: #7B7B71;
+	
+	width: 100%;
+	height: 205px;
+	
+	-moz-border-radius-bottomright: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	border-bottom-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+
+.user_info .enterhotel
+{
+	position: absolute;
+	top: 13px;
+	right: 10px;
+		
+	min-width: 75px !important;
+	height: 109px;
+		
+	background: url('../images/orange_thing.png') top center no-repeat;
+}
+
+.user_info .enterhotel .ehbutton, .user_info .enterhotel b
+{
+	float: left;
+			
+	margin-top: 28px;
+		
+	background: url('../images/enter_button.png') -9px 0px no-repeat;
+			
+	height: 49px;
+}
+
+.user_info .enterhotel .ehbutton
+{
+	max-width: 300px;
+	line-height: 46px;
+			
+	padding-right: 8px;
+	padding-left: 17px;
+}
+
+.user_info .enterhotel b
+{
+	width: 9px;
+
+	background: url(../images/enter_button.png) 0px 0px no-repeat;
+}
+
+.user_info .enterhotel a
+{
+	background: url(../images/flashy_arrow.gif) center right no-repeat;
+			
+	padding-right: 22px;
+			
+	color: white;
+	text-decoration: none;
+	font-size: 13px;
+}
+
+.enterhotel:hover .ehbutton
+{
+	background: url(../images/enter_button.png) -9px -49px no-repeat;
+}
+
+.enterhotel:hover b
+{
+	background: url(../images/enter_button.png) 0px -49px no-repeat;
+}
+
+.enterhotel a:hover
+{
+	text-decoration: underline;
+}
+
+.user_info .avatar
+{
+	position: absolute;
+	top: 46px;
+	left: 9px;
+		
+	width: 94px;
+	height: 137px;
+		
+	text-align: center;
+		
+	background: url(../images/info_plate.png) bottom center no-repeat;
+}
+
+.user_info .avatar:hover
+{
+	background: url(../images/info_plate.png) 0px 74px no-repeat;
+}
+
+.user_info .motto
+{
+	position: absolute;
+	top: 148px;
+	left: 112px;
+			
+	width: 225px;
+	max-width: 225px;
+	height: 24px;
+	max-height: 24px;
+	line-height: 24px;
+			
+	font-size: 10px;
+			
+	background: url(../images/motto_field.png) top center no-repeat;
+}
+
+.user_info #motto
+{
+	float: left;
+				
+	width: auto;
+				
+	margin-left: 2px;
+}
+
+.user_info #mottoEdit
+{
+	display: none;
+	width: 98%;
+					
+	padding: 2px;
+					
+	text-align: center;
+}
+
+.user_info #mottoEditBox
+{
+	width: 100%;
+	height: 18px;
+	line-height: 19px;
+					
+	border: none;
+					
+	padding: 0px;
+	margin: 0px;
+					
+	font-size: 11px;
+}
+
+.user_info .motto span
+{
+	font-weight: bold;
+	font-size: 10px;
+				
+	padding-left: 3px;
+				
+	float: left;
+}
+			
+.user_info .balance
+{
+	position: absolute;
+	top: 170px;
+	left: 78px;
+}
+
+.user_info .balance p
+{
+	font-size: 11px;
+			
+	float: left;
+			
+	margin-right: 10px;
+}
+
+.credits, .pixels
+{
+	min-width: 20px;
+	height: 20px;
+	line-height: 22px;
+		
+	padding-left: 22px;
+}
+
+.credits
+{
+	background: url(../images/icons.png) 0px 0px no-repeat;
+}
+
+.pixels
+{
+	background: url(../images/icons.png) 0px -20px no-repeat;
+}
