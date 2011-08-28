@@ -289,21 +289,25 @@ class users implements iUsers
 	{
 		global $template, $_CONFIG, $core, $engine;
 		
-		if(isset($_POST['account']))
+		$template->form->setData();
+		
+		if(isset($template->form->account))
 		{
 		
-			if(isset($_POST['acc_motto']) && $_POST['acc_motto'] != $this->getInfo($_SESSION['user_id'], 'motto'))
+			if(isset($template->form->acc_motto) && $template->form->acc_motto != $this->getInfo($_SESSION['user_id'], 'motto'))
 			{
-				$this->updateUser($_SESSION['user_id'], 'motto', $engine->secure($_POST['acc_motto']));
+				$this->updateUser($_SESSION['user_id'], 'motto', $template->form->acc_motto);
+				$template->form->unsetData();
 				header('Location: '.$_CONFIG['hotel']['url'].'/me');
 				exit;
 			}
 			
-			if(isset($_POST['acc_email']) && $_POST['acc_email'] != $this->getInfo($_SESSION['user_id'], 'email'))
+			if(isset($template->form->acc_email) && $template->form->acc_email!= $this->getInfo($_SESSION['user_id'], 'email'))
 			{
-				if($this->validEmail($_POST['acc_email']))
+				if($this->validEmail($template->form->acc_email))
 				{
-					$this->updateUser($_SESSION['user_id'], 'email', $engine->secure($_POST['acc_email']));
+					$this->updateUser($_SESSION['user_id'], 'email', $template->form->acc_email);
+					$template->form->unsetData();
 					header('Location: '.$_CONFIG['hotel']['url'].'/me');
 					exit;
 				}
@@ -314,25 +318,26 @@ class users implements iUsers
 				}
 			}
 			
-			if(isset($_POST['acc_old_password']) && isset($_POST['acc_new_password']))
+			if(isset($template->form->acc_old_password) && isset($template->form->acc_new_password))
 			{
-				if($this->userValidation($this->getInfo($_SESSION['user_id'], 'username'), $core->hashed(filter($_POST['acc_old_password']))))
+				if($this->userValidation($this->getInfo($_SESSION['user_id'], 'username'), $core->hashed($template->form->acc_old_password)))
 				{
-					if(strlen($_POST['acc_new_password']) >= 8)
+					if(strlen($template->form->acc_new_password) >= 8)
 					{
-						$this->updateUser($_SESSION['user_id'], 'password', $core->hashed($_POST['acc_new_password']));
+						$this->updateUser($_SESSION['user_id'], 'password', $core->hashed($template->form->acc_new_password));
+						$template->form->unsetData();
 						header('Location: '.$_CONFIG['hotel']['url'].'/me');
 						exit;
 					}
 					else
 					{
-						$this->form->error = 'New password is too short';
+						$template->form->error = 'New password is too short';
 						return;
 					}
 				}
 				else
 				{
-					$this->form->error = 'Current password is wrong';
+					$template->form->error = 'Current password is wrong';
 					return;
 				}
 			}
