@@ -51,7 +51,7 @@ use Revolution as Rev;
 		
 		//MANAGEMENT
 		
-			require_once A . M . 'config.php';
+			include(A . M . 'config.php');
 			
 			require_once A . M . 'recaptchalib.php';
 			
