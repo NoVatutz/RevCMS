@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(E_ALL & ~E_NOTICE);
+
 define('A', 'app/');
 define('I', 'interfaces/');
 define('M', 'management/');
