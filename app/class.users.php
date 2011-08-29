@@ -124,12 +124,20 @@ class users implements iUsers
 							{
 								if($template->form->reg_password == $template->form->reg_rep_password)
 								{
-									if($this->validSecKey($template->form->reg_seckey))
+									if(isset($template->form->reg_seckey))
 									{
-										if(!isset($template->form->reg_gender))
+										if($this->validSecKey($template->form->reg_seckey))
 										{
-											$template->form->reg_gender = 'M';
+											//Continue
 										}
+										else
+										{
+											$template->form->error = 'Secret key must only have 4 numbers';
+											return;
+										}
+									}
+									
+									if(!isset($template->form->reg_gender)) { $template->form->reg_gender = 'M'; }
 										
 										$this->addUser($template->form->reg_username, $core->hashed($template->form->reg_password), $template->form->reg_email, $_CONFIG['hotel']['motto'], $_CONFIG['hotel']['credits'], $_CONFIG['hotel']['pixels'], 1, '-', $template->form->reg_gender, $core->hashed($template->form->reg_key));
 							
@@ -137,13 +145,6 @@ class users implements iUsers
 								
 										header('Location: ' . $_CONFIG['hotel']['url'] . '/me');
 										exit;
-									}
-									else
-									{
-										$template->form->error = 'Secret key must have only 4 numbers';
-										return;
-									}
-
 								}
 								else	
 								{
@@ -289,25 +290,21 @@ class users implements iUsers
 	{
 		global $template, $_CONFIG, $core, $engine;
 		
-		$template->form->setData();
-		
-		if(isset($template->form->account))
+		if(isset($_POST['account']))
 		{
 		
-			if(isset($template->form->acc_motto) && $template->form->acc_motto != $this->getInfo($_SESSION['user_id'], 'motto'))
+			if(isset($_POST['acc_motto']) && $_POST['acc_motto'] != $this->getInfo($_SESSION['user_id'], 'motto'))
 			{
-				$this->updateUser($_SESSION['user_id'], 'motto', $template->form->acc_motto);
-				$template->form->unsetData();
+				$this->updateUser($_SESSION['user_id'], 'motto', $engine->secure($_POST['acc_motto']));
 				header('Location: '.$_CONFIG['hotel']['url'].'/me');
 				exit;
 			}
 			
-			if(isset($template->form->acc_email) && $template->form->acc_email!= $this->getInfo($_SESSION['user_id'], 'email'))
+			if(isset($_POST['acc_email']) && $_POST['acc_email'] != $this->getInfo($_SESSION['user_id'], 'email'))
 			{
-				if($this->validEmail($template->form->acc_email))
+				if($this->validEmail($_POST['acc_email']))
 				{
-					$this->updateUser($_SESSION['user_id'], 'email', $template->form->acc_email);
-					$template->form->unsetData();
+					$this->updateUser($_SESSION['user_id'], 'email', $engine->secure($_POST['acc_email']));
 					header('Location: '.$_CONFIG['hotel']['url'].'/me');
 					exit;
 				}
@@ -318,26 +315,25 @@ class users implements iUsers
 				}
 			}
 			
-			if(isset($template->form->acc_old_password) && isset($template->form->acc_new_password))
+			if(isset($_POST['acc_old_password']) && isset($_POST['acc_new_password']))
 			{
-				if($this->userValidation($this->getInfo($_SESSION['user_id'], 'username'), $core->hashed($template->form->acc_old_password)))
+				if($this->userValidation($this->getInfo($_SESSION['user_id'], 'username'), $core->hashed(filter($_POST['acc_old_password']))))
 				{
-					if(strlen($template->form->acc_new_password) >= 8)
+					if(strlen($_POST['acc_new_password']) >= 8)
 					{
-						$this->updateUser($_SESSION['user_id'], 'password', $core->hashed($template->form->acc_new_password));
-						$template->form->unsetData();
+						$this->updateUser($_SESSION['user_id'], 'password', $core->hashed($_POST['acc_new_password']));
 						header('Location: '.$_CONFIG['hotel']['url'].'/me');
 						exit;
 					}
 					else
 					{
-						$template->form->error = 'New password is too short';
+						$this->form->error = 'New password is too short';
 						return;
 					}
 				}
 				else
 				{
-					$template->form->error = 'Current password is wrong';
+					$this->form->error = 'Current password is wrong';
 					return;
 				}
 			}
@@ -432,6 +428,18 @@ class users implements iUsers
 	} 
 	
 	/*-------------------------------Handling user information-------------------------------------*/ 	 
+	
+/*	final public function cacheUser($k)
+	{
+		global $engine; 		 	
+		$userInfo = $engine->fetch_array("SELECT * FROM users WHERE id = '" . $k . "' LIMIT 1");
+		
+		foreach($userInfo as $key => $value)
+		{
+			$this->setInfo($key, $value);
+		}
+	
+	}	*/
 	
 	final public function setInfo($key, $value)
 	{
