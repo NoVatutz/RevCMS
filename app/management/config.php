@@ -16,7 +16,7 @@ $_CONFIG['mysql']['username'] = 'root'; //MySQL username
 
 $_CONFIG['mysql']['password'] = 'root'; //MySQL password
 
-$_CONFIG['mysql']['database'] = 'rev_phoenix'; //MySQL database
+$_CONFIG['mysql']['database'] = 'phoenixDB'; //MySQL database
 
 $_CONFIG['mysql']['port'] = '3306'; //MySQL's port
 

@@ -101,7 +101,7 @@ if(mysql_result(mysql_query("SELECT rank FROM users WHERE id = '" . $_SESSION['u
 	Short story <br />
 	<input type="text" name="shortstory"/> <br /> <br />
 	Main story <br />
-	<textarea id="content1" name="longstory"  cols="85" rows="10"></textarea>
+	<textarea id="content1" name="longstory"  cols="85" rows="10" class="mceEditor"></textarea>
 	<br /> <br /> <input type="submit" value="  Proceed to next step (Image chooser)  " name="step1" />
 	</form>
 	<?php

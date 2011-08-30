@@ -19,6 +19,8 @@ $template->write('<html xmlns="http://www.w3.org/1999/xhtml">');
 		
 		$template->css->getHK();
 		
+		$template->js->getHK();
+		
 	$template->write('</head>');
 	
 	$template->write('<body>');
