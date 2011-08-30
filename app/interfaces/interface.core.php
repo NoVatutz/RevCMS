@@ -4,7 +4,9 @@ namespace Revolution;
 
 interface iCore
 {
-	public function serverStat($entry);
+	public function getOnline();
+	
+	public function getStatus();
 	
 	public function systemError($who, $txt);
 	

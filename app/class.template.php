@@ -15,7 +15,8 @@ class template implements iTemplate
 		$this->setParams('hotelName', $_CONFIG['hotel']['name']);
 		$this->setParams('hotelDesc', $_CONFIG['hotel']['desc']);
 		$this->setParams('url', $_CONFIG['hotel']['url']);
-		$this->setParams('online', $core->serverStat('users_online'));
+		$this->setParams('online', $core->getOnline());
+		$this->setParams('status', $core->getStatus());
 		$this->setParams('web_build', $_CONFIG['hotel']['web_build']);
 		$this->setParams('external_vars', $_CONFIG['hotel']['external_vars']);
 		$this->setParams('external_texts', $_CONFIG['hotel']['external_texts']);

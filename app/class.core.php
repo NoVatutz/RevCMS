@@ -5,10 +5,16 @@ namespace Revolution;
 class core implements iCore
 {
 
-	final public function serverStat($entry)
+	final public function getOnline()
 	{
 		global $engine;
-		return $engine->result("SELECT '" . $entry . "' FROM server_status");
+		return $engine->result("SELECT users_online FROM server_status");
+	}
+	
+	final public function getStatus()
+	{
+		global $engine;
+		return $engine->result("SELECT status FROM server_status");
 	}
 	
 	final public function systemError($who, $txt)

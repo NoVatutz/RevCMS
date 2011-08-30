@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(E_ALL ^ E_NOTICE);
+
 define('A', 'app/');
 define('I', 'interfaces/');
 define('M', 'management/');
@@ -51,7 +53,7 @@ use Revolution as Rev;
 		
 		//MANAGEMENT
 		
-			require_once A . M . 'config.php';
+			require_once(A . M . 'config.php');
 			
 			require_once A . M . 'recaptchalib.php';
 			

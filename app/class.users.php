@@ -124,12 +124,20 @@ class users implements iUsers
 							{
 								if($template->form->reg_password == $template->form->reg_rep_password)
 								{
-									if($this->validSecKey($template->form->reg_seckey))
+									if(isset($template->form->reg_seckey))
 									{
-										if(!isset($template->form->reg_gender))
+										if($this->validSecKey($template->form->reg_seckey))
 										{
-											$template->form->reg_gender = 'M';
+											//Continue
 										}
+										else
+										{
+											$template->form->error = 'Secret key must only have 4 numbers';
+											return;
+										}
+									}
+									
+									if(!isset($template->form->reg_gender)) { $template->form->reg_gender = 'M'; }
 										
 										$this->addUser($template->form->reg_username, $core->hashed($template->form->reg_password), $template->form->reg_email, $_CONFIG['hotel']['motto'], $_CONFIG['hotel']['credits'], $_CONFIG['hotel']['pixels'], 1, '-', $template->form->reg_gender, $core->hashed($template->form->reg_key));
 							
@@ -137,13 +145,6 @@ class users implements iUsers
 								
 										header('Location: ' . $_CONFIG['hotel']['url'] . '/me');
 										exit;
-									}
-									else
-									{
-										$template->form->error = 'Secret key must have only 4 numbers';
-										return;
-									}
-
 								}
 								else	
 								{
@@ -427,6 +428,18 @@ class users implements iUsers
 	} 
 	
 	/*-------------------------------Handling user information-------------------------------------*/ 	 
+	
+/*	final public function cacheUser($k)
+	{
+		global $engine; 		 	
+		$userInfo = $engine->fetch_array("SELECT * FROM users WHERE id = '" . $k . "' LIMIT 1");
+		
+		foreach($userInfo as $key => $value)
+		{
+			$this->setInfo($key, $value);
+		}
+	
+	}	*/
 	
 	final public function setInfo($key, $value)
 	{

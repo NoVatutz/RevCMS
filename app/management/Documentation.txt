@@ -1,11 +1,11 @@
 //////////////////////////////////////////////////////////////////////
-// # © Kryptos - RevCMS - Release 1.0.0			            //
-// # © Jontycat & Predict - ZapASE (Housekeeping)		    //
-// # © RastaLulz - Design					    //
-// # © dannyy94 - Design					    //                                 
-// # © joopie - Design						    //
-// # © Meth0d - Snippets			        	    //  	
-// # © TheHabbos.ORG - TheHabbos.ORG API - Release 1.0.0 (BETA 2)   //  
+// # ï¿½ Kryptos - RevCMS - Release 1.0.0			            //
+// # ï¿½ Jontycat(PHP) & Predict(CSS) - ZapASE (Housekeeping)		    //
+// # ï¿½ RastaLulz - Design					    //
+// # ï¿½ dannyy94 - Design					    //                                 
+// # ï¿½ joopie - Design						    //
+// # ï¿½ Meth0d - Snippets			        	    //  	
+// # ï¿½ TheHabbos.ORG - TheHabbos.ORG API - Release 1.0.0 (BETA 2)   //  
 //////////////////////////////////////////////////////////////////////
 
 Thank you http://DevBest.com
@@ -58,11 +58,11 @@ Installation progress:
 		
 		From there you just have to create files, although there are some ground-rules that you must follow and some explanations I must give you.
 		
-		1.- All files in the main directory of your template(i.e: app/tpl/skins/Mango/) must be .php files, but those files will 						have for the most part HTML code. Another thing is that these files only contain content INSIDE the <body> tags, so inside these files 			must not have <html>, <head> or <body> tags.
+		1.- All files in the main directory of your template(i.e: app/tpl/skins/Mango/) must be .php files, but those files will have for the most part HTML code. Another thing is that these files only contain content INSIDE the <body> tags, so inside these files must not have <html>, <head> or <body> tags.
 		
-		2.- Remember that if you create a file in the main folder called for example: login.php, you will have to access it by going on 				your browser to: 'http://mysite.com/login', yeah, without the .php at the end of the URL! 
+		2.- Remember that if you create a file in the main folder called for example: login.php, you will have to access it by going on your browser to: 'http://mysite.com/login', yeah, without the .php at the end of the URL! 
 			
-			NOTE: This means that if you want to create register.php, you have to create a file named 'register.php' in your template's 			main directory, thus not being able to do files such as: head-register.php, form-register.php, etc.
+			NOTE: This means that if you want to create register.php, you have to create a file named 'register.php' in your template's main directory, thus not being able to do files such as: head-register.php, form-register.php, etc.
 		
 		3.- The .css files must be in a folder called 'styles' inside your template's main directory(i.e: app/tpl/skins/Mango/styles/).
 			
@@ -90,4 +90,46 @@ Installation progress:
 		
 		
 		If you need any help, or have any questions, PM me on http://devbest.com or reply to the release thread you download this from.
+
+		
+		TOOLS YOU CAN USE IN YOUR TEMPLATE:
+
+{username} - Username of user
+{motto} - Motto of user
+{email} - Email of user
+{coins} - Amount of credits of user
+{activitypoints} - Amount of pixels of user
+{sso}
+{figure} - Figure the user has
+
+{hotelName} - Name of hotel
+{hotelDesc} - Description of hotel
+{url} - URL of hotel
+
+{newsList} - List of all articles besides the one you're viewing
+{newsTitle} - Title of the article
+{newsAuthor} - Author of the article
+{newsContent} - Article
+{newsDate} - When the article was created
+
+{newsTitle-1} - The title of the last article made
+{newsCaption-1} - The 'short_text' of the last article made
+{newsIMG-1} - The topstory of the last article made
+
+{newsTitle-2} - The title of the penultimate article made
+{newsCaption-2} - The 'short_text' of the penultimate article made
+{newsIMG-2} - The topstory of the penultimate article made
+
+And so on until:
+{newsIMG-5} - The topstory of the '5th last' article made
+
+{web_build} - Web build to use
+
+{SWFs_related_stuff} - like 2 more, not gonna mention.
+
+EXAMPLE OF USING THE TOOLS:
+
+<div class='message'>
+	Your username is {username}
+</div>
 
