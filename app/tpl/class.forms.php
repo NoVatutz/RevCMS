@@ -88,24 +88,12 @@ class forms implements iForms
                 
         while($news = mysql_fetch_array($data))
        	{
-        	if($news['title'] == null)
-            {
-            	$template->setParams('newsTitle-' . $a, 'Not found');
-                $template->setParams('newsID-' . $a, 'Not found');
-                $template->setParams('newsDate-' . $a, 'Not found');
-                $template->setParams('newsCaption-' . $a, 'Not found');
-                $template->setParams('newsIMG-' . $a, 'Not found');
-            }
-            else
-            {      
-                $template->setParams('newsTitle-' . $a, $news['title']);
-                $template->setParams('newsID-' . $a, $news['id']);
-                $template->setParams('newsDate-' . $a, $news['published']);
-                $template->setParams('newsCaption-' . $a, $news['shortstory']);
-                $template->setParams('newsIMG-' . $a, $news['image']);
-                $a++;
-                    
-            }
+            $template->setParams('newsTitle-' . $a, $news['title']);
+            $template->setParams('newsID-' . $a, $news['id']);
+            $template->setParams('newsDate-' . $a, $news['published']);
+            $template->setParams('newsCaption-' . $a, $news['shortstory']);
+            $template->setParams('newsIMG-' . $a, $news['image']);
+            $a++;          
         }
         
         unset($news);
