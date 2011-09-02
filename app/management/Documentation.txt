@@ -14,7 +14,7 @@ Installation progress:
 //NOTE: Mostly guided for XAMPP users, but other users that don't use XAMPP will get what I mean with everything- dey b smart
 
 	1.- Extract all the files of RevCMS.zip to htdocs
-	2.- Go to app/management and import 'database.sql' to your database.
+	2.- Create a column named 'seckey' which is a VARCHAR(999) in the table named 'users' of your phoenixDB.
 	3.- Go to app/management and open config.php, here there will appear a list of vars commented so you know what they're for.
 	4.- Fill the information asked in config.php, MySQL information, Hotel-related and user-related information, you will also find some add-ons 		such as a TheHabbos.ORG API section, you must fill this out so the API works, and social networking info of your hotel!
 	5.- Now you're pretty much set to go, all you have to do now is register and then make yourself(You, the owner of the hotel) admin via  			PHPMyAdmin or whatever you use to handle your database
